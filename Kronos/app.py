@@ -21,12 +21,6 @@ def login_required(f):
 	return wrapper
 
 @app.route("/")
-def index():
-	if "logged_in" in session:
-		return redirect(url_for("home"))
-	else:
-		return redirect(url_for("login"))
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
 	if "logged_in" in session:
