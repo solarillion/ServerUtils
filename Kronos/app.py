@@ -20,7 +20,7 @@ def login_required(f):
 		return f(*args, **kwargs)
 	return wrapper
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @app.route("/login", methods=["GET", "POST"])
 def login():
 	if "logged_in" in session:
@@ -32,7 +32,7 @@ def login():
 		conn = sqlite3.connect(db_file)
 		c = conn.cursor()
 		c.execute("SELECT * FROM login WHERE username=?", (request.form.get("username"),))
-		result = c.fetchone()		
+		result = c.fetchone()
 		if result is None or result[1] != request.form.get("password"):
 			error = "Invalid credentials. Please try again."
 		else:
