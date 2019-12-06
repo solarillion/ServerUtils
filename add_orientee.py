@@ -19,7 +19,7 @@ tars = slack.WebClient(keys["slack"])
 users = tars.users_list().data["members"]
 slack_id = ""
 
-for member in members:
+for member in users:
 	if member["is_bot"]:
 		pass
 	elif member["profile"]["email"] == email:
