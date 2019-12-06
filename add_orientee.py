@@ -4,7 +4,7 @@
 import datetime
 import pyrebase
 import slack
-from credentials import *
+from credentials.keys import *
 
 print("Name: ", end="")
 name = input()
