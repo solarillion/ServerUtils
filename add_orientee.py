@@ -46,7 +46,7 @@ hyouka_fb = pyrebase.initialize_app(hyouka_fb_config)
 join = datetime.date.today()
 
 tars_db = tars_fb.database()
-tars_db.child("orientee").child(slack_id).update({"name": name, "github": github, "group": group, "join": join, "progress": "py1", "py_fin": "None", "g_fin": "None", "p_fin": "None"})
+tars_db.child("orientee").child(slack_id).update({"name": name, "github": github, "group": group, "join": str(join), "progress": "py1", "py_fin": "None", "g_fin": "None", "p_fin": "None"})
 hyouka_db = hyouka_fb.database()
 hyouka_db.child(github).update({"name": name, "group": group, "progress": "py1", "slack": slack_id})
 
