@@ -20,7 +20,7 @@ users = tars.users_list().data["members"]
 slack_id = ""
 
 for member in users:
-	if member["is_bot"]:
+	if member["is_bot"] or member["id"] == "USLACKBOT":
 		pass
 	elif member["profile"]["email"] == email:
 		slack_id = member["id"]
